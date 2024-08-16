@@ -22,7 +22,7 @@
         height="300"
         width="300"
         class="rounded"
-        alt="..." />
+        alt="your pet" />
     </div>
     <!-- button group -->
     <div
@@ -35,19 +35,22 @@
         <button
           type="button"
           class="btn btn-warning"
-          aria-label="">
+          aria-label="button"
+          id="btn-feed">
           Feed
         </button>
         <button
           type="button"
           class="btn btn-primary"
-          aria-label="">
+          aria-label="button"
+          id="btn-play">
           Play
         </button>
         <button
           type="button"
           class="btn btn-success"
-          aria-label="">
+          aria-label="button"
+          id="btn-train">
           Train
         </button>
       </div>
@@ -60,16 +63,36 @@
       <div
         class="d-flex justify-content-between"
         role="group">
-        <h3 class="m-3 fs-4">Hunger</h3>
-        <h3 class="m-3 fs-4">Energy</h3>
-        <h3 class="m-3 fs-4">Skills</h3>
+        <h3
+          class="m-3 fs-4"
+          id="hunger-indicator">
+          Hunger
+        </h3>
+        <h3
+          class="m-3 fs-4"
+          id="energy-indicator">
+          Energy
+        </h3>
+        <h3
+          class="m-3 fs-4"
+          id="skills-indicator">
+          Skills
+        </h3>
+        <h3
+          class="m-3 fs-4"
+          id="age-indicator">
+          10 y.o
+        </h3>
       </div>
     </div>
-    <footer class="mx-3 my-3 fs-6 text-end">your digital friend <3</footer>
+    <footer class="mx-3 my-3 fs-6 text-end">
+      <div>your digital friend <3</div>
+    </footer>
     <!-- hooks up bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
