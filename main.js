@@ -1,5 +1,12 @@
-const sum = (a, b) => {
-  return a + b;
-};
+//select the buttons
 
-module.exports = sum;
+//hook em up to the indicators
+
+//separate file class Pet()
+
+//NOTE: testing setup
+// const sum = (a, b) => {
+//   return a + b;
+// };
+
+// module.exports = sum;
