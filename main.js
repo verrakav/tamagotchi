@@ -1,13 +1,4 @@
-//select the buttons
-const btnFeed = document.getElementById("btn-feed");
-const btnPlay = document.getElementById("btn-play");
-const btnTrain = document.getElementById("btn-train");
-
-//select indicators
-let indHunger = document.getElementById("hunger-indicator");
-let indEnergy = document.getElementById("energy-indicator");
-let indSkill = document.getElementById("skills-indicator");
-let indAge = document.getElementById("age-indicator");
+//FIXME: had trouble importing
 
 //initial setup-related
 
@@ -83,7 +74,7 @@ class Pet {
   intervalAge = () => {
     setInterval(() => {
       this.age++;
-      indAge.innerHTML = this.age + " y.o.";
+      indAge.innerHTML = "your digital friend is " + this.age + " y.o. ❤️";
     }, 5000);
   };
 
@@ -99,7 +90,24 @@ class Pet {
 
 //instantiated Pet
 const barbie = new Pet();
-console.log(barbie);
+
+//select the buttons
+const btnFeed = document.getElementById("btn-feed");
+const btnPlay = document.getElementById("btn-play");
+const btnTrain = document.getElementById("btn-train");
+const btnClean = document.getElementById("btn-clean");
+
+//select indicators
+let indHunger = document.getElementById("hunger-indicator");
+let indEnergy = document.getElementById("energy-indicator");
+let indSkill = document.getElementById("skills-indicator");
+let indAge = document.getElementById("age-indicator");
+
+//select mess
+const oopsTop = document.getElementById("oops-top");
+const oopsBottom = document.getElementById("oops-bottom");
+const oopsRight = document.getElementById("oops-right");
+const oopsLeft = document.getElementById("oops-left");
 
 //interval team called
 barbie.intervalAge();
@@ -112,9 +120,32 @@ btnFeed.addEventListener("click", e => {
   barbie.fedTooMuch();
 });
 
-btnPlay.addEventListener("click", e => barbie.handlePlay());
+//mess factory
+const createOpps = () => {
+  const randomMess = Math.floor(Math.random() * 4 + 1);
+  //no break needed cause returning
+  switch (randomMess) {
+    case 1:
+      return oopsTop;
+    case 2:
+      return oopsBottom;
+    case 3:
+      return oopsRight;
+    case 4:
+      return oopsLeft;
+    default:
+      throw new Error("Unexpected mess!");
+  }
+};
 
+const handleClean = mess => {
+  mess.style.opacity = "0";
+};
+
+btnPlay.addEventListener("click", e => barbie.handlePlay());
 btnTrain.addEventListener("click", e => barbie.handleTrain());
+//what goes into handleClean?
+btnClean.addEventListener("click", e => handleClean(createOpps()));
 
 //NOTE: till later?
 //make the start page + logic/elms to choose pets
