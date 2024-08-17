@@ -1,23 +1,22 @@
 //FIXME: had trouble importing
 
-//initial setup-related
-
+//initial setup class
 class Pet {
   //used to be globals in main.js
   constructor() {
     this.hunger = 50;
     this.energy = 100;
-    this.skill = 0;
+    this.skill = 3;
     this.age = 0;
     this.feedCount = 0;
     this.currentButtons = null;
   }
 
-  //define handlers triggered by buttons (handle team) | refactor into switch?
+  //define handlers triggered by buttons (handle team)
   handleFeed = () => {
     //expected response to the button
     this
-      .hunger--; /*ASK: here and others if moved to innerHTML assignment skips the fitst click */
+      .hunger--; /*FIXME: here and others if moved to innerHTML assignment skips the fitst click */
     this.hunger < 0 && (this.hunger = 0);
     indHunger.innerHTML = this.hunger;
     //side effects
@@ -47,12 +46,12 @@ class Pet {
   };
 
   //changeing indicators with time (interval team)
-  //TODO: make them more random && refactor into a switch?
+  //TODO: make them more random?? refactor into a switch?
   intervalHunger = () => {
     setInterval(() => {
       this.hunger++;
       indHunger.innerHTML = this.hunger;
-    }, 1000);
+    }, 10000);
   };
 
   intervalEnergy = () => {
@@ -60,7 +59,7 @@ class Pet {
       this.energy--;
       this.energy < 0 && (this.energy = 0);
       indEnergy.innerHTML = this.energy;
-    }, 1000);
+    }, 10000);
   };
 
   intervalSkill = () => {
@@ -68,7 +67,7 @@ class Pet {
       this.skill--;
       this.skill < 0 && (this.skill = 0);
       indSkill.innerHTML = this.skill;
-    }, 1000);
+    }, 10000);
   };
 
   intervalAge = () => {
@@ -118,44 +117,54 @@ barbie.intervalAge();
 btnFeed.addEventListener("click", e => {
   barbie.handleFeed();
   barbie.fedTooMuch();
+  setTimeout(() => createOpps(), randomInterval());
 });
+
+//helper.js candidate
+const randomInterval = () => {
+  return Math.floor(Math.random() * 901) + 100;
+};
 
 //mess factory
 const createOpps = () => {
-  const randomMess = Math.floor(Math.random() * 4 + 1);
-  //no break needed cause returning
+  const randomMess = Math.floor(Math.random() * 4) + 1;
   switch (randomMess) {
     case 1:
-      return oopsTop;
+      oopsTop.style.opacity = "1";
+      break;
     case 2:
-      return oopsBottom;
+      oopsBottom.style.opacity = "1";
+      break;
     case 3:
-      return oopsRight;
+      oopsRight.style.opacity = "1";
+      break;
     case 4:
-      return oopsLeft;
+      oopsLeft.style.opacity = "1";
+      break;
     default:
       throw new Error("Unexpected mess!");
   }
 };
 
-const handleClean = mess => {
-  mess.style.opacity = "0";
+//cleaning the mess
+const handleClean = () => {
+  if (oopsTop.style.opacity == "1") {
+    oopsTop.style.opacity = "0";
+  } else if (oopsBottom.style.opacity == "1") {
+    oopsBottom.style.opacity = "0";
+  } else if (oopsRight.style.opacity == "1") {
+    oopsRight.style.opacity = "0";
+  } else if (oopsLeft.style.opacity == "1") {
+    oopsLeft.style.opacity = "0";
+  }
 };
 
 btnPlay.addEventListener("click", e => barbie.handlePlay());
 btnTrain.addEventListener("click", e => barbie.handleTrain());
-//what goes into handleClean?
-btnClean.addEventListener("click", e => handleClean(createOpps()));
+btnClean.addEventListener("click", e => handleClean());
 
 //NOTE: till later?
 //make the start page + logic/elms to choose pets
 
-//NOTE: testing setup
-// const sum = (a, b) => {
-//   return a + b;
-// };
-
-// module.exports = sum;
-
 //TODO:
-//think through the logic of scoring
+//think through the logic of indicators
