@@ -90,6 +90,21 @@ class Pet {
 //instantiated Pet
 const barbie = new Pet();
 
+//select pet screen
+const petScreen = document.getElementById("pet-screen");
+
+//select good-dog
+const goodDog = document.getElementById("good-dog");
+//select btn to get-a-pet
+const getPet = document.getElementById("get-a-pet");
+
+//good-dog div disappears onclick
+getPet.addEventListener("click", () => {
+  console.log("click");
+  goodDog.style.opacity = "0";
+  petScreen.style.opacity = "1";
+});
+
 //select the buttons
 const btnFeed = document.getElementById("btn-feed");
 const btnPlay = document.getElementById("btn-play");
