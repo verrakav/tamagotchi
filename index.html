@@ -15,6 +15,7 @@
   </head>
   <body>
     <h1 class="display-3 text-center my-3">Tamagotchi</h1>
+    <!-- TODO: change Barbie to Pet that would become the Pet's name onces it's chosen -->
     <h2 class="display-4 text-center my-3">Barbie</h2>
     <div class="text-center">
       <img
@@ -30,25 +31,25 @@
       role="group"
       aria-label="buttons to play">
       <div
-        class="btn-group"
+        class="d-flex justify-content-between"
         role="group">
         <button
           type="button"
-          class="btn btn-warning"
+          class="btn btn-warning mx-3"
           aria-label="button"
           id="btn-feed">
           Feed
         </button>
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-primary mx-3"
           aria-label="button"
           id="btn-play">
           Play
         </button>
         <button
           type="button"
-          class="btn btn-success"
+          class="btn btn-success mx-3"
           aria-label="button"
           id="btn-train">
           Train
@@ -64,30 +65,28 @@
         class="d-flex justify-content-between"
         role="group">
         <h3
-          class="m-3 fs-4"
+          class="my-3 mx-4 fs-4"
           id="hunger-indicator">
           50
         </h3>
         <h3
-          class="m-3 fs-4"
+          class="my-3 mx-4 fs-4"
           id="energy-indicator">
           100
         </h3>
         <h3
-          class="m-3 fs-4"
+          class="my-3 mx-4 fs-4"
           id="skills-indicator">
           0
         </h3>
-        <h3
-          class="m-3 fs-4"
-          id="age-indicator">
-          0 y.o
-        </h3>
       </div>
     </div>
-    <footer class="mx-3 my-3 fs-6 text-end">
-      <div>your digital friend <3</div>
-    </footer>
+    <div class="mx-3 my-3 fs-6 text-end">
+      your digital friend is
+      <span id="age-indicator"> 0 y.o </span>
+      ❤️
+    </div>
+    <footer class="mx-3 fs-6 text-end">footer placeholder</footer>
     <!-- hooks up bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
