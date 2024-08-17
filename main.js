@@ -10,13 +10,14 @@ let indSkill = document.getElementById("skills-indicator");
 let indAge = document.getElementById("age-indicator");
 
 //initial setup
+//TODO: global let vars need to move - object?
 let hunger = 50;
 let energy = 100;
 let skill = 0;
 let age = 0;
 
-//define handlers
-//FIXME: onclick -50 instead of -1
+//define handlers triggered by buttons (handle team)
+//refactor into switch?
 const handleFeed = () => {
   hunger--;
   hunger < 0 && (hunger = 0);
@@ -41,15 +42,41 @@ btnPlay.addEventListener("click", e => handlePlay());
 
 btnTrain.addEventListener("click", e => handleTrain());
 
-//handle age with an interval
-const countAge = () => {
+//change indicators with time (interval team)
+//TODO: make them more random && refactor into a switch?
+const intervalHunger = () => {
+  setInterval(() => {
+    hunger++;
+    indHunger.innerHTML = hunger;
+  }, 1000);
+};
+// intervalHunger();
+
+const intervalEnergy = () => {
+  setInterval(() => {
+    energy--;
+    energy < 0 && (energy = 0);
+    indEnergy.innerHTML = energy;
+  }, 1000);
+};
+// intervalEnergy();
+
+const intervalSkill = () => {
+  setInterval(() => {
+    skill--;
+    skill < 0 && (skill = 0);
+    indSkill.innerHTML = skill;
+  }, 1000);
+};
+
+const intervalAge = () => {
   setInterval(() => {
     age++;
     indAge.innerHTML = age + " y.o.";
     console.log(age);
   }, 5000);
 };
-countAge();
+// intervalAge();
 
 //NOTE: till later?
 //make the start page + logic/elms to choose pets
