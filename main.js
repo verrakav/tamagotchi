@@ -10,7 +10,7 @@ let indSkill = document.getElementById("skills-indicator");
 let indAge = document.getElementById("age-indicator");
 
 //initial setup
-let hunger = 2;
+let hunger = 50;
 let energy = 100;
 let skill = 0;
 let age = 0;
