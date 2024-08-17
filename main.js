@@ -15,28 +15,56 @@ let hunger = 50;
 let energy = 100;
 let skill = 0;
 let age = 0;
+let fedCount = 0;
+let currentButton = null;
+
+//helper.js candidates
+const fedTooMuch = () => {
+  fedCount++;
+  currentButton = "feed";
+  if (fedCount % 3 == 0) {
+    indSkill.innerHTML = skill--;
+  }
+};
 
 //define handlers triggered by buttons (handle team)
 //refactor into switch?
 const handleFeed = () => {
+  //expected response to the button
   hunger--;
   hunger < 0 && (hunger = 0);
   indHunger.innerHTML = hunger;
-};
-
-const handlePlay = () => {
-  energy--;
-  energy < 0 && (energy = 0);
+  //side effects
+  energy += 2;
   indEnergy.innerHTML = energy;
 };
 
+const handlePlay = () => {
+  //expected response to the button
+  energy--;
+  energy < 0 && (energy = 0);
+  indEnergy.innerHTML = energy;
+  //side effects
+  hunger += 2;
+  indHunger.innerHTML = hunger;
+};
+
 const handleTrain = () => {
+  //expected response to the button
   skill++;
   indSkill.innerHTML = skill;
+  //side effects
+  hunger += 2;
+  indHunger.innerHTML = hunger;
+  energy -= 2;
+  indEnergy.innerHTML = energy;
 };
 
 //hook em up to the indicators
-btnFeed.addEventListener("click", e => handleFeed());
+btnFeed.addEventListener("click", e => {
+  handleFeed();
+  fedTooMuch();
+});
 
 btnPlay.addEventListener("click", e => handlePlay());
 
