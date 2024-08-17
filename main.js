@@ -9,13 +9,14 @@ let indEnergy = document.getElementById("energy-indicator");
 let indSkill = document.getElementById("skills-indicator");
 let indAge = document.getElementById("age-indicator");
 
-//initial setup NOTE: should be in my pet object?
+//initial setup
 let hunger = 2;
 let energy = 100;
 let skill = 0;
 let age = 0;
 
 //define handlers
+//FIXME: onclick -50 instead of -1
 const handleFeed = () => {
   hunger--;
   hunger < 0 && (hunger = 0);
@@ -49,8 +50,6 @@ const countAge = () => {
   }, 5000);
 };
 countAge();
-
-//separate file class Pet()?
 
 //NOTE: till later?
 //make the start page + logic/elms to choose pets
