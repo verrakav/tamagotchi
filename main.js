@@ -1,10 +1,11 @@
 //FIXME: working import confused about how to apply it
-import getPet from "./helpers/selectors.js";
+// import getPet from "./helpers/selectors.js";
 import {
   btnFeed,
   btnPlay,
   btnTrain,
   btnClean,
+  btnAnotherPet,
   indAge,
   indHunger,
   indEnergy,
@@ -14,7 +15,8 @@ import {
   oopsLeft,
   oopsRight,
   goodDog,
-  petScreen
+  petScreen,
+  getPet
 } from "./helpers/selectors.js";
 import {randomizePet} from "./helpers/helperFunc.js";
 
@@ -166,6 +168,15 @@ const handleClean = () => {
     oopsLeft.style.opacity = "0";
   }
 };
+
+//getting another pet
+btnAnotherPet.addEventListener("click", e => {
+  randomizePet();
+  barbie.intervalAge();
+  // barbie.intervalEnergy();
+  // barbie.intervalHunger();
+  indAge.innerHTML = "your digital friend is " + 0 + " y.o. ❤️";
+});
 
 btnPlay.addEventListener("click", e => barbie.handlePlay());
 btnTrain.addEventListener("click", e => barbie.handleTrain());

@@ -90,12 +90,4 @@ class Pet {
 }
 
 const pet = new Pet();
-export default pet;
-handleFeed();
-handlePlay();
-handleTrain();
-intervalHunger();
-intervalEnergy();
-intervalSkill();
-intervalAge();
-fedTooMuch();
+console.log(pet);
