@@ -9,6 +9,11 @@ class Pet {
     this.currentButtons = null;
   }
 
+  //select indicators
+  indHunger = document.getElementById("hunger-indicator");
+  indEnergy = document.getElementById("energy-indicator");
+  indSkill = document.getElementById("skills-indicator");
+  indAge = document.getElementById("age-indicator");
   //define handlers triggered by buttons (handle team)
   handleFeed = () => {
     //expected response to the button
@@ -86,3 +91,11 @@ class Pet {
 
 const pet = new Pet();
 export default pet;
+handleFeed();
+handlePlay();
+handleTrain();
+intervalHunger();
+intervalEnergy();
+intervalSkill();
+intervalAge();
+fedTooMuch();
