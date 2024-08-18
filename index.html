@@ -14,11 +14,13 @@
       crossorigin="anonymous" />
   </head>
   <body>
-    <h1 class="display-1 text-center my-4">Tamagotchi</h1>
     <div class="d-flex justify-content-center min-vh-100">
       <div
         class="text-center position-relative"
         id="container">
+        <!-- name is fixed other element slide onnto it when 
+         the page is moved up -->
+        <h1 class="display-1 text-center my-4">Tamagotchi</h1>
         <!-- TODO: change Barbie to Pet that would become the Pet's name onces it's chosen -->
         <div
           class="text-center my-4"
@@ -44,13 +46,15 @@
           id="pet-screen"
           class="d-flex justify-content-center flex-column position-absolute"
           style="
-            top: 35%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0;
             z-index: -1;
           ">
-          <h2 class="display-4 text-center my-4">Barbie</h2>
+          <h2
+            class="display-4 text-center my-4"
+            id="pet-name"></h2>
 
           <div class="d-flex justify-content-center">
             <div
@@ -62,7 +66,7 @@
                 width="300"
                 class="rounded"
                 alt="image"
-                id="pet" />
+                id="pet-image" />
               <img
                 src="./src/other/poo.png"
                 height="300"

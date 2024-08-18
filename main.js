@@ -1,15 +1,22 @@
 //FIXME: working import confused about how to apply it
-// import {
-//   pet,
-//   handleFeed,
-//   handlePlay,
-//   handleTrain,
-//   intervalHunger,
-//   intervalEnergy,
-//   intervalSkill,
-//   intervalAge,
-//   fedTooMuch
-// } from "./helpers/Pet.js";
+import getPet from "./helpers/selectors.js";
+import {
+  btnFeed,
+  btnPlay,
+  btnTrain,
+  btnClean,
+  indAge,
+  indHunger,
+  indEnergy,
+  indSkill,
+  oopsTop,
+  oopsBottom,
+  oopsLeft,
+  oopsRight,
+  goodDog,
+  petScreen
+} from "./helpers/selectors.js";
+import {randomizePet} from "./helpers/helperFunc.js";
 
 //initial setup class
 class Pet {
@@ -101,39 +108,13 @@ class Pet {
 //instantiated Pet
 const barbie = new Pet();
 
-//select pet screen
-const petScreen = document.getElementById("pet-screen");
-
-//select good-dog
-const goodDog = document.getElementById("good-dog");
-//select btn to get-a-pet
-const getPet = document.getElementById("get-a-pet");
-
 //good-dog div disappears onclick
-getPet.addEventListener("click", () => {
-  console.log("click");
+getPet.addEventListener("click", e => {
   goodDog.style.opacity = "0";
   petScreen.style.opacity = "1";
   petScreen.style.zIndex = "1";
+  randomizePet();
 });
-
-//select the buttons
-const btnFeed = document.getElementById("btn-feed");
-const btnPlay = document.getElementById("btn-play");
-const btnTrain = document.getElementById("btn-train");
-const btnClean = document.getElementById("btn-clean");
-
-//select indicators
-let indHunger = document.getElementById("hunger-indicator");
-let indEnergy = document.getElementById("energy-indicator");
-let indSkill = document.getElementById("skills-indicator");
-let indAge = document.getElementById("age-indicator");
-
-//select mess
-const oopsTop = document.getElementById("oops-top");
-const oopsBottom = document.getElementById("oops-bottom");
-const oopsRight = document.getElementById("oops-right");
-const oopsLeft = document.getElementById("oops-left");
 
 //interval team called
 barbie.intervalAge();
