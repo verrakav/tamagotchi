@@ -1,3 +1,4 @@
+import {indAge, indHunger, indEnergy, indSkill} from "./selectors.js";
 class Pet {
   //used to be globals in main.js
   constructor() {
@@ -9,11 +10,6 @@ class Pet {
     this.currentButtons = null;
   }
 
-  //select indicators
-  indHunger = document.getElementById("hunger-indicator");
-  indEnergy = document.getElementById("energy-indicator");
-  indSkill = document.getElementById("skills-indicator");
-  indAge = document.getElementById("age-indicator");
   //define handlers triggered by buttons (handle team)
   handleFeed = () => {
     //expected response to the button
@@ -79,7 +75,6 @@ class Pet {
     }, 5000);
   };
 
-  //helper.js candidate
   fedTooMuch = () => {
     this.feedCount++;
     this.currentButton = "feed";
@@ -98,5 +93,5 @@ class Pet {
   };
 }
 
-const pet = new Pet();
-console.log(pet);
+const barbie = new Pet();
+export default barbie;
