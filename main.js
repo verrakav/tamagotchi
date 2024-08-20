@@ -175,13 +175,13 @@ const handleClean = () => {
 
 //getting another pet
 btnAnotherPet.addEventListener("click", e => {
-  barbie.resetPet();
   //TODO: refactor
   oopsTop.style.opacity = "0";
   oopsBottom.style.opacity = "0";
   oopsRight.style.opacity = "0";
   oopsLeft.style.opacity = "0";
   randomizePet();
+  barbie.resetPet();
   indAge.innerHTML = "your digital friend is " + 0 + " y.o. ❤️";
 });
 

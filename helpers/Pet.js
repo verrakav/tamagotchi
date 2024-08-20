@@ -87,6 +87,15 @@ class Pet {
       indSkill.innerHTML = this.skill--;
     }
   };
+
+  resetPet = () => {
+    this.hunger = 50;
+    this.energy = 100;
+    this.skill = 3;
+    this.age = 0;
+    this.feedCount = 0;
+    this.currentButtons = null;
+  };
 }
 
 const pet = new Pet();
