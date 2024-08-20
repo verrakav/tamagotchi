@@ -18,7 +18,7 @@ import {
   petScreen,
   getPet
 } from "./helpers/selectors.js";
-import {randomizePet} from "./helpers/helperFunc.js";
+import {randomizePet, randomInterval} from "./helpers/helperFunc.js";
 
 //initial setup class
 class Pet {
@@ -139,11 +139,6 @@ btnFeed.addEventListener("click", e => {
   setTimeout(() => createOpps(), randomInterval());
 });
 
-//helper.js candidate
-const randomInterval = () => {
-  return Math.floor(Math.random() * 901) + 100;
-};
-
 //mess factory
 const createOpps = () => {
   const randomMess = Math.floor(Math.random() * 4) + 1;
@@ -180,14 +175,13 @@ const handleClean = () => {
 
 //getting another pet
 btnAnotherPet.addEventListener("click", e => {
-  randomizePet();
   barbie.resetPet();
   //TODO: refactor
   oopsTop.style.opacity = "0";
   oopsBottom.style.opacity = "0";
   oopsRight.style.opacity = "0";
   oopsLeft.style.opacity = "0";
-
+  randomizePet();
   indAge.innerHTML = "your digital friend is " + 0 + " y.o. ❤️";
 });
 

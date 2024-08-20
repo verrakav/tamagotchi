@@ -28,4 +28,9 @@ export const randomizePet = () => {
   );
 };
 
-export {petImage, petName};
+//helper.js candidate
+const randomInterval = () => {
+  return Math.floor(Math.random() * 901) + 100;
+};
+
+export {petImage, petName, randomInterval};
