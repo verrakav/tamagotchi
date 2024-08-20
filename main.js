@@ -1,5 +1,6 @@
 //TODO:
 //think through the logic of indicators
+//randomizePet shouldn't get the same pet 2 times in a row
 import {
   btnFeed,
   btnPlay,
@@ -46,15 +47,19 @@ const createOpps = () => {
   const randomMess = Math.floor(Math.random() * 4) + 1;
   switch (randomMess) {
     case 1:
+      randomInterval();
       oopsTop.style.opacity = "1";
       break;
     case 2:
+      randomInterval();
       oopsBottom.style.opacity = "1";
       break;
     case 3:
+      randomInterval();
       oopsRight.style.opacity = "1";
       break;
     case 4:
+      randomInterval();
       oopsLeft.style.opacity = "1";
       break;
     default:
