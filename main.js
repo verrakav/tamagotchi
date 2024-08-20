@@ -105,6 +105,15 @@ class Pet {
       indSkill.innerHTML = this.skill--;
     }
   };
+
+  resetPet = () => {
+    this.hunger = 50;
+    this.energy = 100;
+    this.skill = 3;
+    this.age = 0;
+    this.feedCount = 0;
+    this.currentButtons = null;
+  };
 }
 
 //instantiated Pet
@@ -172,9 +181,13 @@ const handleClean = () => {
 //getting another pet
 btnAnotherPet.addEventListener("click", e => {
   randomizePet();
-  barbie.intervalAge();
-  // barbie.intervalEnergy();
-  // barbie.intervalHunger();
+  barbie.resetPet();
+  //TODO: refactor
+  oopsTop.style.opacity = "0";
+  oopsBottom.style.opacity = "0";
+  oopsRight.style.opacity = "0";
+  oopsLeft.style.opacity = "0";
+
   indAge.innerHTML = "your digital friend is " + 0 + " y.o. ❤️";
 });
 
